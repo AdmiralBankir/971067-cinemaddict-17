@@ -1,7 +1,7 @@
 # Проект «Киноман»
 
 - Студент: [Владислав Бодин](https://up.htmlacademy.ru/ecmascript/17/user/971067).
-- Наставник: [Валерий Кобзарь] (https://htmlacademy.ru/profile/id1431125).
+- Наставник: [Валерий Кобзарь](https://htmlacademy.ru/profile/id1431125).
 
 ---
 
