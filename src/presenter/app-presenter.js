@@ -6,12 +6,16 @@ import FilmCardView from '../view/film-card-view.js';
 import ShowMoreButtonView from '../view/show-more-button-view.js';
 import FilmDetailsPopupView from '../view/film-details-popup-view.js';
 
-import {render} from '../render.js';
+import { render } from '../render.js';
 
 const NUM_OF_FILMS = 5;
 
 export default class AppPresenter {
   filmsList = new FilmsListView();
+
+  constructor() {
+    this.isRenderedPopup = false;
+  }
 
   init = ({profileElement, mainElement, bodyElement}) => {
     if (!(profileElement &&  mainElement && bodyElement)) {
@@ -30,6 +34,9 @@ export default class AppPresenter {
     }
 
     render(new ShowMoreButtonView(), this.filmsListContainer, 'afterend');
-    render(new FilmDetailsPopupView(), bodyElement);
+
+    if (this.isRenderedPopup) {
+      render(new FilmDetailsPopupView(), bodyElement);
+    }
   };
 }
