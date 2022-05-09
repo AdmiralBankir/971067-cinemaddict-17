@@ -7,4 +7,6 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
-export {getRandomInteger};
+const getRandomFloat = (min = 0, max = 1) => Math.random() * (max - min + 1) + min;
+
+export {getRandomInteger, getRandomFloat};

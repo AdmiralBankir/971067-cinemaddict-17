@@ -1,5 +1,5 @@
 import { POSTERS } from './const.js';
-import { getRandomInteger } from '../utils.js';
+import { getRandomInteger, getRandomFloat } from '../utils.js';
 
 
 const getRandomPoster = () => {
@@ -14,7 +14,7 @@ export const generateMovie = (commentIds) => (
     'film_info': {
       'title': 'A Little Pony Without The Carpet',
       'alternative_title': 'Laziness Who Sold Themselves',
-      'total_rating': 5.3,
+      'total_rating': getRandomFloat(0, 10).toFixed(1),
       'poster': getRandomPoster(),
       'age_rating': getRandomInteger(0 , 18),
       'director': 'Tom Ford',
@@ -28,7 +28,7 @@ export const generateMovie = (commentIds) => (
         'date': '2019-05-11T00:00:00.000Z',
         'release_country': 'Finland'
       },
-      'runtime': getRandomInteger(0 , 24),
+      'runtime': getRandomInteger(0 , 340),
       'genre': [
         'Comedy'
       ],
