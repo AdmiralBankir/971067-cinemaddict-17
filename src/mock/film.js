@@ -11,12 +11,12 @@ export const generateFilm = () => (
   {
     'id': '0',
     'comments': [],
-    'film_info': {
+    'filmInfo': {
       'title': 'A Little Pony Without The Carpet',
-      'alternative_title': 'Laziness Who Sold Themselves',
-      'total_rating': getRandomFloat(0, 10).toFixed(1),
+      'alternativeTitle': 'Laziness Who Sold Themselves',
+      'totalRating': getRandomFloat(0, 10).toFixed(1),
       'poster': getRandomPoster(),
-      'age_rating': getRandomInteger(0 , 18),
+      'ageRating': getRandomInteger(0 , 18),
       'director': 'Tom Ford',
       'writers': [
         'Takeshi Kitano'
@@ -26,18 +26,19 @@ export const generateFilm = () => (
       ],
       'release': {
         'date': '2019-05-11T00:00:00.000Z',
-        'release_country': 'Finland'
+        'releaseCountry': 'Finland'
       },
       'runtime': getRandomInteger(0 , 340),
       'genre': [
-        'Comedy'
+        'Comedy',
+        'News'
       ],
       'description': 'Oscar-winning film, a war drama about two young people, from the creators of timeless classic "Nu, Pogodi!" and "Alice in Wonderland", with the best fight scenes since Bruce Lee.'
     },
-    'user_details': {
+    'userDetails': {
       'watchlist': false,
-      'already_watched': true,
-      'watching_date': '2019-04-12T16:12:32.554Z',
+      'alreadyWatched': true,
+      'watchingDate': '2019-04-12T16:12:32.554Z',
       'favorite': false
     }
   }
