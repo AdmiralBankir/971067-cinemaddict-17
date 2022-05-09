@@ -2,7 +2,7 @@ import { generateFilm } from '../mock/film.js';
 import { generateCommentById } from '../mock/comment.js';
 import { getRandomInteger } from '../utils.js';
 
-const NUM_OF_FILMS = 20;
+const NUM_OF_FILMS = 5;
 const NUM_OF_COMMENTS = NUM_OF_FILMS + getRandomInteger(0, NUM_OF_FILMS * NUM_OF_FILMS * NUM_OF_FILMS);
 
 const generateUninqueIds = () => {
@@ -21,4 +21,5 @@ export default class CinemaAppModel {
 
   getFilms = () => this.films;
   getComments = () => this.comments;
+  getCommentsByIds = (ids) => this.comments.filter((comment) => ids.some((id) => id === comment.id));
 }

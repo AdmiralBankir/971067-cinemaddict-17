@@ -31,7 +31,8 @@ export const generateFilm = () => (
       'runtime': getRandomInteger(0 , 340),
       'genre': [
         'Comedy',
-        'News'
+        'News',
+        'Tragedy'
       ],
       'description': 'Oscar-winning film, a war drama about two young people, from the creators of timeless classic "Nu, Pogodi!" and "Alice in Wonderland", with the best fight scenes since Bruce Lee.'
     },

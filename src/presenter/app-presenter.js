@@ -21,7 +21,6 @@ export default class AppPresenter {
     }
 
     this.films = appModel.getFilms();
-    this.comments = appModel.getComments();
 
     render(new ProfileView(), profileElement);
 
@@ -37,8 +36,11 @@ export default class AppPresenter {
 
     render(new ShowMoreButtonView(), this.filmsListContainer, 'afterend');
 
-    if (this.isRenderedPopup) {
-      render(new FilmDetailsPopupView(), bodyElement);
+    if (!this.isRenderedPopup) {
+      const film = this.films[0];
+      const comments = appModel.getCommentsByIds(film.comments);
+
+      render(new FilmDetailsPopupView(film, comments), bodyElement);
     }
   };
 }

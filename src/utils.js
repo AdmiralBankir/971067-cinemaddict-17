@@ -1,5 +1,8 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 dayjs.extend(duration);
 
 // Функция из интернета по генерации случайного числа из диапазона
@@ -15,6 +18,10 @@ const getRandomFloat = (min = 0, max = 1) => Math.random() * (max - min + 1) + m
 
 const getYearFromDate = (date) => dayjs(date).format('YYYY');
 
-const getHumanizeDurationFromMinutes = (minutes) => dayjs.duration(minutes, 'minutes').format('H[h] m[m]');
+const getHumanizeDate = (date) => dayjs(date).format('DD MMMM YYYY');
 
-export {getRandomInteger, getRandomFloat, getYearFromDate, getHumanizeDurationFromMinutes};
+const getHumanizeDurationFromMinutes = (minutes) => dayjs.duration(minutes, 'minutes').format('H[h] m[m]').replace('0h','');
+
+const getTimeFromDate = (date) => dayjs(date).fromNow();
+
+export {getRandomInteger, getRandomFloat, getYearFromDate, getHumanizeDurationFromMinutes, getHumanizeDate, getTimeFromDate};

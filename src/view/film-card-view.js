@@ -6,7 +6,7 @@ const createFilmCardTemplate = (film) => {
   const {title, totalRating, release, runtime, genre, poster, description} = film.filmInfo;
 
   const date = getYearFromDate(release.date);
-  const humanizeDuration = getHumanizeDurationFromMinutes(runtime).replace('0h','');
+  const humanizeDuration = getHumanizeDurationFromMinutes(runtime);
   return (
     `<article class="film-card">
       <a class="film-card__link">
@@ -19,7 +19,7 @@ const createFilmCardTemplate = (film) => {
         </p>
         <img src=${poster} alt="" class="film-card__poster">
         <p class="film-card__description">${description}</p>
-        <span class="film-card__comments">${comments.length} comments</span>
+        <span class="film-card__comments">${comments.length || ''} comments</span>
       </a>
       <div class="film-card__controls">
         <button class="film-card__controls-item film-card__controls-item--add-to-watchlist" type="button">Add to watchlist</button>
