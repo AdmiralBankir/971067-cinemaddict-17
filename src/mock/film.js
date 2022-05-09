@@ -14,7 +14,7 @@ export const generateFilm = () => (
     'filmInfo': {
       'title': 'A Little Pony Without The Carpet',
       'alternativeTitle': 'Laziness Who Sold Themselves',
-      'totalRating': getRandomFloat(0, 10).toFixed(1),
+      'totalRating': getRandomFloat(0, 9).toFixed(1),
       'poster': getRandomPoster(),
       'ageRating': getRandomInteger(0 , 18),
       'director': 'Tom Ford',
