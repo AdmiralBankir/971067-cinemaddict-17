@@ -8,8 +8,6 @@ import FilmDetailsPopupView from '../view/film-details-popup-view.js';
 
 import { render } from '../render.js';
 
-const NUM_OF_FILMS = 5;
-
 export default class AppPresenter {
   filmsList = new FilmsListView();
 
@@ -17,10 +15,14 @@ export default class AppPresenter {
     this.isRenderedPopup = false;
   }
 
-  init = ({profileElement, mainElement, bodyElement}) => {
+  init = ({profileElement, mainElement, bodyElement}, appModel) => {
     if (!(profileElement &&  mainElement && bodyElement)) {
       throw new Error('Not enough parent elements for render!');
     }
+
+    this.movies = appModel.getMovies();
+    this.comments = appModel.getComments();
+
     render(new ProfileView(), profileElement);
 
     render(new FiltersView(), mainElement);
@@ -29,8 +31,8 @@ export default class AppPresenter {
 
     this.filmsListContainer = this.filmsList.getFilmsContainerElement();
 
-    for (let i = 0; i < NUM_OF_FILMS; i++) {
-      render(new FilmCardView(), this.filmsListContainer);
+    for (let i = 0; i < this.movies.length; i++) {
+      render(new FilmCardView(this.movies[i]), this.filmsListContainer);
     }
 
     render(new ShowMoreButtonView(), this.filmsListContainer, 'afterend');
