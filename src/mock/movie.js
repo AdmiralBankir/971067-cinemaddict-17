@@ -7,11 +7,10 @@ const getRandomPoster = () => {
   return `./images/posters/${poster}`;
 };
 
-export const generateMovie = () => (
+export const generateMovie = (commentIds) => (
   {
     'id': '0',
-    'comments': [
-    ],
+    'comments': commentIds,
     'film_info': {
       'title': 'A Little Pony Without The Carpet',
       'alternative_title': 'Laziness Who Sold Themselves',

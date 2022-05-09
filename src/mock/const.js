@@ -7,3 +7,5 @@ export const POSTERS = [
   'the-great-flamarion.jpg',
   'the-man-with-the-golden-arm.jpg'
 ];
+
+export const EMOTIONS = ['smile', 'sleeping', 'puke', 'angry'];
