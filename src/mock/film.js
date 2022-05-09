@@ -7,7 +7,7 @@ const getRandomPoster = () => {
   return `./images/posters/${poster}`;
 };
 
-export const generateMovie = () => (
+export const generateFilm = () => (
   {
     'id': '0',
     'comments': [],

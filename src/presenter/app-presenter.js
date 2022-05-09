@@ -20,7 +20,7 @@ export default class AppPresenter {
       throw new Error('Not enough parent elements for render!');
     }
 
-    this.movies = appModel.getMovies();
+    this.films = appModel.getFilms();
     this.comments = appModel.getComments();
 
     render(new ProfileView(), profileElement);
@@ -31,8 +31,8 @@ export default class AppPresenter {
 
     this.filmsListContainer = this.filmsList.getFilmsContainerElement();
 
-    for (let i = 0; i < this.movies.length; i++) {
-      render(new FilmCardView(this.movies[i]), this.filmsListContainer);
+    for (let i = 0; i < this.films.length; i++) {
+      render(new FilmCardView(this.films[i]), this.filmsListContainer);
     }
 
     render(new ShowMoreButtonView(), this.filmsListContainer, 'afterend');

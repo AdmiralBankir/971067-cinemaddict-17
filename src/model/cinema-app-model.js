@@ -1,4 +1,4 @@
-import { generateMovie } from '../mock/movie.js';
+import { generateFilm } from '../mock/film.js';
 import { generateCommentById } from '../mock/comment.js';
 import { getRandomInteger } from '../utils.js';
 
@@ -13,12 +13,12 @@ const generateUninqueIds = () => {
 
 export default class CinemaAppModel {
   commentIds = generateUninqueIds();
-  movies = Array.from({length: NUM_OF_FILMS}, generateMovie());
+  films = Array.from({length: NUM_OF_FILMS}, generateFilm());
   comments = this.commentIds.map((id) => {
-    this.movies[getRandomInteger(0, NUM_OF_FILMS - 1)].comments.push(id.toString());
+    this.films[getRandomInteger(0, NUM_OF_FILMS - 1)].comments.push(id.toString());
     return generateCommentById(id);
   });
 
-  getMovies = () => this.movies;
+  getFilms = () => this.films;
   getComments = () => this.comments;
 }
