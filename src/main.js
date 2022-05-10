@@ -5,11 +5,11 @@ import { render } from './render.js';
 
 const profileElement = document.querySelector('.header');
 const mainElement = document.querySelector('.main');
-const bodyElement = document.querySelector('body');
 const footerStatElement = document.querySelector('.footer__statistics');
 
-const appPresenter = new AppPresenter();
 const appModel = new CinemaAppModel();
+const appPresenter = new AppPresenter({profileElement, mainElement}, appModel);
+
 
 render(new FilmsCounterView(), footerStatElement);
-appPresenter.init({profileElement, mainElement, bodyElement}, appModel);
+appPresenter.init();
