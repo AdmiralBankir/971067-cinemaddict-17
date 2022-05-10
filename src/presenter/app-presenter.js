@@ -28,7 +28,7 @@ export default class AppPresenter {
     render(new SortView(), mainElement);
     render(this.filmsList, mainElement);
 
-    this.filmsListContainer = this.filmsList.getFilmsContainerElement();
+    this.filmsListContainer = this.filmsList.filmsContainerElement;
 
     for (let i = 0; i < this.films.length; i++) {
       render(new FilmCardView(this.films[i]), this.filmsListContainer);

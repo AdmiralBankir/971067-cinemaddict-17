@@ -12,25 +12,29 @@ const createFilmsListTemplate = () => (
 );
 
 export default class FilmsListView {
-  getTemplate() {
+  #element = null;
+  #filmsContainerElement = null;
+
+  get template() {
     return createFilmsListTemplate();
   }
 
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
+  get element() {
+    if (!this.#element) {
+      this.#element = createElement(this.template);
     }
 
-    return this.element;
+    return this.#element;
   }
 
-  getFilmsContainerElement() {
-    if (this.element) {
-      return this.element.querySelector('.films-list__container');
+  get filmsContainerElement() {
+    if (this.#element && !this.#filmsContainerElement) {
+      this.#filmsContainerElement = this.#element.querySelector('.films-list__container');
     }
+    return this.#filmsContainerElement;
   }
 
   removeElement() {
-    this.element = null;
+    this.#element = null;
   }
 }
