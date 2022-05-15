@@ -15,6 +15,8 @@ export default class AppPresenter {
   #profileElement = null;
   #mainElement = null;
   #filmsListContainer = null;
+  #body = null;
+  #popUp = null;
 
 
   constructor({profileElement, mainElement}, appModel) {
@@ -28,6 +30,7 @@ export default class AppPresenter {
       throw new Error('Not enough parent elements for render!');
     }
 
+    this.#body = document.body;
     this.#renderApp();
   };
 
@@ -50,12 +53,30 @@ export default class AppPresenter {
   }
 
   #renderFilmCard(film) {
-    render(new FilmCardView(film), this.#filmsListContainer);
+    const filmView = new FilmCardView(film);
+    render(filmView, this.#filmsListContainer);
+    filmView.element.addEventListener('click', () => this.#handleOpenPopup(film));
   }
 
-  #handleOpenPopupClick(film) {
+  #handleOpenPopup(film) {
     const comments = this.#appModel.getCommentsByIds(film.comments);
+    this.#popUp = new FilmDetailsPopupView(film, comments);
+    render(this.#popUp, this.#body);
+    this.#body.classList.add('hide-overflow');
 
-    render(new FilmDetailsPopupView(film, comments), document.body);
+    this.#popUp.closeButton.addEventListener('click', () => this.#handleClosePopup());
+
+    const onEscKeyDown = (evt) => {
+      if (evt.key === 'Escape' || evt.key === 'Esc') {
+        this.#handleClosePopup();
+        document.removeEventListener('keydown', onEscKeyDown);
+      }
+    };
+    document.addEventListener('keydown', onEscKeyDown);
+  }
+
+  #handleClosePopup() {
+    this.#popUp.element.remove();
+    this.#body.classList.remove('hide-overflow');
   }
 }

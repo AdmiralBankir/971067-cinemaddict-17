@@ -168,6 +168,14 @@ export default class FilmDetailsPopupView {
     return this.#element;
   }
 
+  get closeButton() {
+    let closeButton = null;
+    if (this.#element) {
+      closeButton = this.#element.querySelector('.film-details__close-btn');
+    }
+    return closeButton;
+  }
+
   removeElement() {
     this.#element = null;
   }
